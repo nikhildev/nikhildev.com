@@ -28,7 +28,7 @@ html, body {
   padding-left: 40px;
 }
 .mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row h3 {
-  font-size: inherit;
+  font-size: 24px;
 }
 .mdl-demo .mdl-layout__tab-bar-button {
   display: none;
@@ -58,6 +58,11 @@ html, body {
   background-color: white;
   height: 4px;
 }
+
+.mdl-demo main {
+  /*background: rgba(0, 0, 0, 0.7);*/
+}
+
 .mdl-demo main > .mdl-layout__tab-panel {
   padding: 8px;
   padding-top: 48px;
@@ -210,4 +215,22 @@ html, body {
 }
 .mdl-demo .mdl-menu__container {
   z-index: 99;
+}
+
+
+/* Custom Styles */
+nav.mdl-layout--small-screen-only {
+  display: flex;
+  flex-direction: column;
+}
+nav#small-screen-navigation > * {
+  color: white;
+  font-size: 12px;
+  padding: 8px;
+  text-transform: uppercase;
+}
+
+#about-me {
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
