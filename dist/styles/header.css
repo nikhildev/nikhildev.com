@@ -1,0 +1,2 @@
+nav.mdl-layout--large-screen-only,nav.mdl-layout--small-screen-only{display:-ms-flexbox;display:flex}nav.mdl-layout--small-screen-only{-ms-flex-direction:column;flex-direction:column}nav.mdl-layout--large-screen-only{-ms-flex-direction:row;flex-direction:row}nav#large-screen-navigation>*,nav#small-screen-navigation>*{color:#fff;font-size:12px;padding:8px;text-transform:uppercase;transition:all .25s ease-out}nav#large-screen-navigation>:hover{-webkit-transform:scale(1.1);transform:scale(1.1);font-weight:600}
+/*# sourceMappingURL=header.css.map */

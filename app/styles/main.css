@@ -217,19 +217,6 @@ html, body {
   z-index: 99;
 }
 
-
-/* Custom Styles */
-nav.mdl-layout--small-screen-only {
-  display: flex;
-  flex-direction: column;
-}
-nav#small-screen-navigation > * {
-  color: white;
-  font-size: 12px;
-  padding: 8px;
-  text-transform: uppercase;
-}
-
 #about-me {
   margin-top: 24px;
   margin-bottom: 24px;
