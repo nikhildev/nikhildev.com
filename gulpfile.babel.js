@@ -59,6 +59,7 @@ gulp.task('images', () =>
 // Copy all files at the root level (app)
 gulp.task('copy', () =>
   gulp.src([
+    'CNAME',
     'app/**/*',
     '!app/*.html',
     'node_modules/apache-server-configs/dist/.htaccess'
