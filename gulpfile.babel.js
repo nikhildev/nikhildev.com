@@ -86,7 +86,10 @@ gulp.task('styles', () => {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'app/styles/**/*.scss',
-    'app/styles/**/*.css'
+    'app/styles/**/*.css',
+    // Vendor CSS
+    'app/vendor/**/*.css',
+    'app/vendor/**/*.scss'
   ])
     .pipe($.newer('.tmp/styles'))
     .pipe($.sourcemaps.init())
@@ -205,11 +208,11 @@ gulp.task('default', ['clean'], cb =>
 // Run PageSpeed Insights
 gulp.task('pagespeed', cb =>
   // Update the below URL to the public URL of your site
-  pagespeed('example.com', {
-    strategy: 'mobile'
+  pagespeed('nikhildev.com', {
+    strategy: 'mobile',
     // By default we use the PageSpeed Insights free (no API key) tier.
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
-    // key: 'YOUR_API_KEY'
+    key: 'AIzaSyBYJiT72MySOM-xJw_HpR3aWXuJEiUOduA'
   }, cb)
 );
 
