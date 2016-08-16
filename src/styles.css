@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+  margin: 0 0 1em 0;
+  padding: 1em 3em;
+  border-bottom: 1px solid rgba(255,255,255,.3);
+}
+
+#top-nav {
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  padding: 1em;
+  z-index: 100;
+}
+
+ul#top-nav {
+  list-style: none;
+  display: flex;
+}
+
+ul#top-nav li {
+  margin: .2em;
+  padding: .3em;
+  border: 1px solid mediumspringgreen;
+  border-radius: 5px;
+  background: transparent;
+  opacity: .8;
+  transition: 200ms ease-in-out;
+  flex-basis: 8em;
+  text-align: center;
+}
+ul#top-nav li:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+ul#top-nav li a {
+  color: white;
+  text-decoration: none;
+  /*text-transform: uppercase;*/
+}
+
+ul#top-nav li.active {
+  background: mediumspringgreen;
+  font-weight: 600;
+}
+ul#top-nav li.active a {
+  color: #00695c;
+}
+
+#fullpage .section {
+  padding: 2em;
+  display: flex;
+  /*flex-direction: row;*/
+  justify-content: center;
+}
+
+#fullpage .section .fp-tableCell{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#slide0 p {
+  font-size: 1.2em;
+  margin: .2em;
+}
+
+
+/*
+ * Some common flexbox styles.
+ */
+
+.flex-container {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-start {
+  justify-content: start;
+}
+.flex-center {
+  justify-content: center;
+}
+.flex-end {
+  justify-content: end;
+}
+
+.action-button {
+  cursor: pointer;
+  border-radius: 5px;
+  background: #673AB7;
+  color: white;
+  text-transform: uppercase;
+  padding: .3em 1em .3em 1em;
+  transition: 200ms ease-in-out;
+  text-decoration: none;
+}

@@ -1,240 +1,83 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
+    <meta name="description" content="Nikhil Dev, Web Developer, Frontend Engineer, Google, AngularJs, Javascript, CSS3, UI Engineer">
     <meta http-equiv="Cache-Control" content="max-age=86400">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil Dev - Frontend Engineer</title>
+    <title>Nikhil Dev</title>
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <!-- Web Application Manifest -->
-    <link rel="manifest" href="manifest.json">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Web Starter Kit">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
-    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#2F3BA2">
-
     <!-- Color the status bar on mobile devices -->
     <meta name="theme-color" content="#2F3BA2">
 
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.fullpage/2.5.9/jquery.fullPage.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          sectionsColor: ['#448AFF', '#5cc34a'],
+          anchors: ['about-me', 'hire-me'],
+          menu: '#top-nav'
+        });
+      });
+    </script>
 
   </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header mdl-layout--fixed-header">
-        <div class="mdl-layout__header-row">
-          <h3>Nikhil Dev</h3>
+  <body>
 
-          <div class="mdl-layout-spacer"></div>
+    <ul id="top-nav">
+      <li data-menuanchor="about-me" class="active"><a href="#about-me">About Me</a></li>
+      <li data-menuanchor="hire-me"><a href="#hire-me">Hire Me</a></li>
+    </ul>
 
+    <div id="fullpage">
 
-          <!--Large Screen Navigation-->
-          <nav id="large-screen-navigation"
-              class="mdl-color--primary-light mdl-layout--large-screen-only">
-            <a href="#about-me" class="mdl-navigation__link">About Me</a>
-            <a href="#technical-expertise" class="mdl-navigation__link">Technical Expertise</a>
-            <!--<a href="#work-experience" class="mdl-navigation__link">Work Experience</a>-->
-            <!--<a href="#education" class="mdl-navigation__link">Education</a>-->
-            <!--<a href="#contact" class="mdl-navigation__link">Contact</a>-->
-          </nav>
+      <!--About Me-->
+      <section class="section active" id="slide0">
+        <h1>Hello, my name in Nikhil.</h1>
+        <div class="flex-container flex-column flex-start">
+          <p>I'm a 33 year old Frontend Engineer from Hyderabad, India.</p>
+          <p>I love building cool stuff in JavaScript all day long.</p>
+          <p>I also love photography, weight training and playing the guitar.</p>
         </div>
+      </section>
 
-      </header>
-
-      <main class="mdl-layout__content">
-
-        <!--Small Screen Navigation-->
-        <nav id="small-screen-navigation"
-             class="mdl-color--primary-dark mdl-layout--small-screen-only">
-          <a href="#about-me" class="mdl-navigation__link">About Me</a>
-          <a href="#technical-expertise" class="mdl-navigation__link">Technical Expertise</a>
-          <!--<a href="#work-experience" class="mdl-navigation__link">Work Experience</a>-->
-          <!--<a href="#education" class="mdl-navigation__link">Education</a>-->
-          <!--<a href="#contact" class="mdl-navigation__link">Contact</a>-->
-        </nav>
-
-        <section id="about-me" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-          <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <div class="mdl-card__supporting-text">
-              <h4>About Me</h4>
-              <p>
-                I'm a passionate and expert Frontend Engineer from Hyderabad with 10+ years of experience
-                developing great products for Google.
-              </p>
-              <p>
-                I have In-Depth knowledge of <strong>JavaScript</strong>, <strong>HTML5</strong>, <strong>CSS3</strong> and frameworks like <strong>AngularJS</strong>(1.x and 2).
-              </p>
-              <p>
-                I have worked also worked on various tiers of the technology stack(backend and RESTful APIs) and
-                proficient with other languages like <strong>PHP</strong>, <strong>Python</strong> and <strong>Java</strong>.
-              </p>
-            </div>
-            <div class="mdl-card__actions">
-              <a href="#technical-expertise" class="mdl-button">View my Technical Expertise</a>
-            </div>
+      Skills
+      <section class="section" id="slide1">
+          <h1>Hire Me</h1>
+          <div class="flex-container flex-row flex-start">
+            <p>
+              If you want to know more about me, you can download my resume
+              <a class="action-button"
+                 href="https://drive.google.com/file/d/0B6cVF2FGXeSkNF8ycmZJOUg5Qmc/view?usp=sharing"
+                 target="_blank">here</a>
+            </p>
           </div>
-        </section>
-
-        <section id="technical-expertise" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-          <div class="mdl-card mdl-cell mdl-cell--12-col">
-            <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-              <h4 class="mdl-cell mdl-cell--12-col">Technical Expertise</h4>
-
-              <div class="demo-list-action mdl-list mdl-cell mdl-cell--12-col">
-                <div class="mdl-list__item mdl-grid mdl-grid--no-spacing">
-                  <img src="images/javascript.svg" alt="JavaScript">
-                  <span>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                  </span>
-                </div>
-
-                <div class="mdl-list__item mdl-grid mdl-grid--no-spacing">
-                  <img src="images/html5.svg" alt="JavaScript">
-                  <span>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                  </span>
-                </div>
-
-                <div class="mdl-list__item mdl-grid mdl-grid--no-spacing">
-                  <img src="images/css3.svg" alt="JavaScript">
-                  <span>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                  </span>
-                </div>
-
-                <div class="mdl-list__item mdl-grid mdl-grid--no-spacing">
-                  <img src="images/angular.svg" alt="JavaScript">
-                  <span>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                  </span>
-                </div>
-
-                <div class="mdl-list__item mdl-grid mdl-grid--no-spacing">
-                  <img src="images/nodejs.svg" alt="NodeJS">
-                  <span>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star_half</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                  </span>
-                </div>
-
-                <div class="mdl-list__item mdl-grid mdl-grid--no-spacing">
-                  <img src="images/python.svg" alt="Python">
-                  <span>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star_half</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                  </span>
-                </div>
-
-                <div class="mdl-list__item mdl-grid mdl-grid--no-spacing">
-                  <img src="images/mysql.svg" alt="MySql">
-                  <span>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star_half</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                  </span>
-                </div>
-
-                <div class="mdl-list__item mdl-grid mdl-grid--no-spacing">
-                  <img src="images/mongodb.svg" alt="MongoDb">
-                  <span>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star_half</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                  </span>
-                </div>
-
-                <div class="mdl-list__item mdl-grid mdl-grid--no-spacing">
-                  <img src="images/gulp.svg" alt="Gulp" style="padding-left: 12px;">
-                  <span>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                    <i class="material-icons mdl-color-text--accent">star_border</i>
-                  </span>
-                </div>
-              </div>
-
-            </div>
-            <div class="mdl-card__actions">
-              <a href="#" class="mdl-button">View My Work Experience</a>
-            </div>
-          </div>
-        </section>
-      </main>
+      </section>
+      <div class="section" id="section2">
+        <h1>No wraps, no extra markup</h1>
+      </div>
     </div>
 
-    <script src="vendor/mdl/material.min.js" async></script>
-    <link rel="stylesheet" href="vendor/mdl/material.min.css">
-
-    <!-- build:js scripts/main.min.js -->
-    <script src="scripts/main.min.js" async></script>
-    <!-- endbuild -->
-
-    <!-- Your styles -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/cards.css">
-
-    <!-- Material Design icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <!--Analytics code-->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
       ga('create', 'UA-38056531-2', 'auto');
       ga('send', 'pageview');
-
     </script>
-    <!-- Built with love using Web Starter Kit -->
+
   </body>
 </html>
