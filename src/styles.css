@@ -100,7 +100,8 @@ ul#top-nav li.active a {
 .action-button {
   cursor: pointer;
   border-radius: 5px;
-  background: #673AB7;
+  font-weight: 600;
+  background: #ffa726;
   color: white;
   text-transform: uppercase;
   padding: .3em 1em .3em 1em;
