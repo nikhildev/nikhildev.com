@@ -68,9 +68,10 @@ ul#top-nav li.active a {
   align-items: center;
 }
 
-#slide0 p {
+.section p {
   font-size: 1.2em;
   margin: .2em;
+  line-height: 2;
 }
 
 
