@@ -107,3 +107,40 @@ ul#top-nav li.active a {
   transition: 200ms ease-in-out;
   text-decoration: none;
 }
+
+@media screen and (max-width: 640px) {
+  .skills-columns {
+    flex-direction: column;
+  }
+
+  .skills-column:last-child {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .skills-columns {
+    flex-direction: row;
+  }
+
+  .skills-column:last-child {
+    margin-left: 3em;
+  }
+}
+
+.skill-container {
+  width: 240px;
+}
+
+
+.skill-rating, .skill-name {
+  font-size: 1em;
+  flex: 1;
+  padding: .2em;
+  margin: .2em;
+  align-items: center;
+  justify-content: center;
+}
+.skill-rating .fa {
+  margin-right: .2em;
+}
