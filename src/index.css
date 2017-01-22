@@ -1,0 +1,68 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand';
+  background: #2d2842;
+}
+
+/* All common flexboax rules */
+
+.flex-container {
+  display: flex;
+}
+
+.flex-layout-row {
+  flex-direction: row;
+}
+
+.flex-layout-column {
+  flex-direction: column;
+}
+
+
+.flex-align-start-start {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.flex-align-start-center {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-align-start-end {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+
+.flex-align-center-start {
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.flex-align-center-center {
+  align-items: center;
+  justify-content: enter;
+}
+
+.flex-align-center-end {
+  align-items: flex-end;
+  justify-content: center;
+}
+
+
+.flex-align-end-start {
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.flex-align-end-center {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flex-align-end-end {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
