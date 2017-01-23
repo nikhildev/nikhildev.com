@@ -5,6 +5,25 @@ body, html {
   background: #2d2842;
 }
 
+.card {
+  background: #4d4567;
+  padding: 16px;
+  margin: 8px;
+  color: white;
+  box-shadow: 1px 2px 24px -5px rgba(0, 0, 0, 1);
+}
+
+.card-title {
+  padding: 8px;
+  position: relative;
+  top: -32px;
+  font-weight: 500;
+}
+
+.card-content {
+  width: 100%;
+}
+
 /* All common flexboax rules */
 
 .flex-container {

@@ -1,0 +1,34 @@
+#skills.card {
+  width: 320px;
+}
+
+#skills .card-title {
+  background: #ef5350;
+}
+
+.skill {
+  margin: 8px 0;
+  width: 100%;
+}
+
+.skill .skill-name {
+  font-size: 16px;
+}
+
+.skill .skill-guage {
+  color: white;
+  height: 8px;
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+.skill .skill-guage::-webkit-progress-bar {
+  background: #2d2842;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.skill .skill-guage::-webkit-progress-value {
+  background: #ef5350;
+  border-radius: 2px;
+}
