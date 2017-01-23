@@ -8,8 +8,12 @@ class Header extends Component {
       <header id="Header"
               className="flex-container flex-layout-row flex-align-start-center">
 
-        <div id="app-title">
-          Nikhil Dev
+        <div id="app-title"
+             className="flex-container flex-layout-column flex-align-start-start">
+          <span id="my-name">Nikhil Dev</span>
+          <span id="designation">
+            Frontend Engineer
+          </span>
         </div>
 
         <div id="social-icons"></div>
