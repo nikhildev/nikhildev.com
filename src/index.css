@@ -8,9 +8,16 @@ body, html {
 .card {
   background: #4d4567;
   padding: 16px;
-  margin: 8px;
+  margin: 16px;
   color: white;
   box-shadow: 1px 2px 24px -5px rgba(0, 0, 0, 1);
+  width: 320px;
+}
+@media (max-width: 700px) {
+  .card {
+    max-width: 640px;
+    width: 90%;
+  }
 }
 
 .card-title {
