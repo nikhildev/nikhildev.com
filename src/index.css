@@ -14,6 +14,7 @@ body, html {
 }
 
 .card-title {
+  background: #009688;
   padding: 8px;
   position: relative;
   top: -32px;
@@ -62,7 +63,7 @@ body, html {
 
 .flex-align-center-center {
   align-items: center;
-  justify-content: enter;
+  justify-content: center;
 }
 
 .flex-align-center-end {

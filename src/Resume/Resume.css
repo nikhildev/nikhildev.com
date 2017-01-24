@@ -1,0 +1,13 @@
+#resume {
+  width: 320px;
+}
+#download-resume {
+  background: #03a9f4;
+  border-radius: 3px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px;
+  text-align: center;
+  text-decoration: none;
+}
