@@ -85,3 +85,7 @@ body, html {
   align-items: flex-end;
   justify-content: flex-end;
 }
+
+.flex {
+  flex: 1;
+}
