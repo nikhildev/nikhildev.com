@@ -1,32 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './AboutMe.css';
 
-class AboutMe extends Component {
-  constructor(props) {
-    super(props);
-  }
+const AboutMe = () => (
+  <div id="about-me"
+        className="card flex-container flex-layout-column flex-align-start-start">
 
-  render() {
-    return (
-      <div id="about-me"
-           className="card flex-container flex-layout-column flex-align-start-start">
+    <div className="card-title">
+      About Me
+    </div>
 
-        <div className="card-title">
-          About Me
-        </div>
+    <div className="card-content flex-container flex-layout-column">
+      Hello, my name is Nikhil.
 
-        <div className="card-content flex-container flex-layout-column">
-          Hello, my name is Nikhil.
+      I'm a 35 year old Frontend Engineer from Hyderabad, India.
+      I love building cool stuff in JavaScript all day long.
+      I also love photography, weight training and playing the guitar.
+    </div>
 
-          I'm a 34 year old Frontend Engineer from Hyderabad, India.
-          I love building cool stuff in JavaScript all day long.
-          I also love photography, weight training and playing the guitar.
-        </div>
-
-      </div>
-    );
-  }
-}
+  </div>
+);
 
 export default AboutMe;
