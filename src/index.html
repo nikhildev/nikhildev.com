@@ -18,16 +18,26 @@
   </head>
   <body>
     <!-- Site content goes here -->
-    <h1>Nikhil Dev Chunchu</h1>
+    <main id="page-container" class="">
+      <article id="about-me" class="article flex flex__column flex__center">
+        <h1 class="article-heading">
+          Hello World !<br />I'm <span style="color: #b044ff;">Nikhil Dev</span>
+        </h1>
+        <p class="article-content">
+          I'm a 36 year old Software Engineer from India living in Helsinki,
+          Finland.
+        </p>
+      </article>
 
-    <section id="about-me" class="about-me">
-      <h1>Who is 'Nikhil'?</h1>
-      <p>
-        Hello, my name is Nikhil. I'm a 36 year old Software Engineer from
-        Helsinki, Finland. I'm a code monkey who loves building great solutions
-        all day long. I also playing the guitar and drinking beer.
-      </p>
-    </section>
+      <article id="skills" class="article flex flex__column flex__center">
+        <h1 class="article-heading">
+          <span style="color: #b044ff;">Skills</span>
+        </h1>
+        <p class="article-content">
+          A whole lotta stuff
+        </p>
+      </article>
+    </main>
     <!-- End of site content -->
 
     <link
@@ -60,7 +70,10 @@
       ga("send", "pageview");
     </script>
     <script src="./index.js"></script>
-    <link rel="stylesheet" href="./style.scss" />
+    <link rel="stylesheet" href="./styles/index.scss" />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Quicksand:500,700");
+    </style>
     <link
       href="https://fonts.googleapis.com/css?family=Pacifico"
       rel="stylesheet"
