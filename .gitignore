@@ -4,7 +4,7 @@
 node_modules
 
 # development
-.cache
+*.cache
 
 # production
 build
