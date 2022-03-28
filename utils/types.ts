@@ -9,10 +9,10 @@ export interface ResponseFuncs {
 }
 
 // Interface to define our Todo model on the frontend
-export interface IPost {
-  _id?: ObjectId;
+export type PostT = {
+  _id: ObjectId;
   title: String;
   body: String;
   author: String;
   createdAt: Date;
-}
+};

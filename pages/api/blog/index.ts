@@ -14,7 +14,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     // RESPONSE FOR GET REQUESTS
     GET: async (req: NextApiRequest, res: NextApiResponse) => {
       const { Post } = await connect(); // connect to database
-      res.json(await Post.findOne());
+      res.json(await Post.find());
     },
     // RESPONSE POST REQUESTS
     // POST: async (req: NextApiRequest, res: NextApiResponse) => {
