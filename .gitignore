@@ -39,3 +39,6 @@ jspm_packages
 .cache
 
 out
+
+# Custom app specific exclusions
+.env.local
