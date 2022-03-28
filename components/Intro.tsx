@@ -2,10 +2,17 @@ import React from "react";
 
 const Intro = () => {
   return (
-    <h1 className="text-3xl font-bold">
-      Hi, my name is Nikhil and I'm a 39 year old Engineering team lead working
-      in Finland
-    </h1>
+    <div className="hero min-h-screen">
+      <div className="hero-content">
+        <div className="">
+          <h1 className="text-5xl text-white font-bold">Hi!</h1>
+          <p className="py-10 text-blue-400 text-2xl">
+            My name is Nikhil and I'm a 39 year old Engineering team lead
+            working in Finland
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 

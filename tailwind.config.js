@@ -6,5 +6,13 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  daisyui: {
+    styled: true,
+    themes: ["forest"],
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+  },
+  plugins: [require("daisyui")],
 };
