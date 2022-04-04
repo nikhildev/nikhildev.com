@@ -3,12 +3,13 @@ import React from "react";
 const Intro = () => {
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content">
-        <div className="">
-          <h1 className="text-5xl text-white font-bold">Hi!</h1>
-          <p className="py-10 text-blue-400 text-2xl">
+      <div className="hero-content flex-col lg:flex-row">
+        <img src="me.jpg" className="max-w-sm rounded-lg shadow-2xl" />
+        <div>
+          <h1 className="text-6xl font-bold text-white">Hi!</h1>
+          <p className="py-6 text-green-300 text-xl">
             My name is Nikhil and I'm a 39 year old Engineering team lead
-            working in Finland
+            working in Finland.
           </p>
         </div>
       </div>

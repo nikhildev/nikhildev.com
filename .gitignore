@@ -42,3 +42,6 @@ out
 
 # Custom app specific exclusions
 .env.local
+
+# Sentry
+.sentryclirc
