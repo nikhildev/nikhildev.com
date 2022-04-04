@@ -22,7 +22,10 @@ const BlogHome = () => {
   return (
     <div className="flex sm:place-content-center sm:flex-col md:flex-row flex-wrap">
       {isLoadingPosts && <Loading text="Loading posts" />}
-      {postsData && postsData.map((post: PostT) => <Post {...post} />)}
+      {postsData &&
+        postsData.map((post: PostT) => (
+          <Post key={post._id.toString()} {...post} />
+        ))}
       {postsError && <div>postsError</div>}
     </div>
   );
