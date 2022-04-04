@@ -1,15 +1,16 @@
 import mongoose, { Model } from "mongoose";
 import Post from "./models/post";
+import User from "./models/user";
 
 // CONNECTING TO MONGOOSE (Get Database Url from .env.local)
-const { BLOG_DATABASE_URL } = process.env;
+const { DATABASE_URL } = process.env;
 
-// connection function
+// Mongo connection
 export const connect = async () => {
   const conn = await mongoose
-    .connect(BLOG_DATABASE_URL as string)
+    .connect(DATABASE_URL as string)
     .catch((err) => console.log(err));
-  console.log("Mongoose Connection Established");
+  console.log("Mongo Connection Established");
 
-  return { conn, Post };
+  return { conn, Post, User };
 };

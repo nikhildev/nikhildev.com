@@ -1,19 +1,31 @@
 import { useQuery } from "react-query";
-import { PostT } from "../../utils/types";
+import { PostT, UserT } from "../../utils/types";
 import Loading from "../Loading";
 import Post from "./PostCard";
 
 const getAllPosts = () => fetch("/api/blog").then((res) => res.json());
+const getAllUsers = () => fetch("/api/user").then((res) => res.json());
 
-const Home = () => {
-  const { isLoading, error, data } = useQuery("/api", getAllPosts);
+const BlogHome = () => {
+  const {
+    isLoading: isLoadingPosts,
+    error: postsError,
+    data: postsData,
+  } = useQuery("getAllPosts", getAllPosts);
+
+  const {
+    isLoading: isLoadingUsers,
+    error: usersError,
+    data: usersData,
+  } = useQuery("getAllUsers", getAllUsers);
+
   return (
-    <div className="flex place-content-center md:flex-col flex-wrap">
-      {isLoading && <Loading text="Loading posts" />}
-      {data && data.map((post: PostT) => <Post {...post} />)}
-      {error && <div>error</div>}
+    <div className="flex sm:place-content-center sm:flex-col md:flex-row flex-wrap">
+      {isLoadingPosts && <Loading text="Loading posts" />}
+      {postsData && postsData.map((post: PostT) => <Post {...post} />)}
+      {postsError && <div>postsError</div>}
     </div>
   );
 };
 
-export default Home;
+export default BlogHome;

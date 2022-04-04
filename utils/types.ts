@@ -16,3 +16,13 @@ export type PostT = {
   author: String;
   createdAt: Date;
 };
+
+// Interface to define our Todo model on the frontend
+export type UserT = {
+  _id: ObjectId;
+  google_user_id: String;
+  displayName: String;
+  email: String;
+  createdAt: Date;
+  modifiedAt: Date;
+};
