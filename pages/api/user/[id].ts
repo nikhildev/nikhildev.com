@@ -8,11 +8,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const { id } = req.query;
 
-  const { User } = await connect(); // connect to database
-  const userById: UserT | null = await User.findById(id);
+  const { UserModel } = await connect(); // connect to database
+  const userById: UserT | null = await UserModel.findById(id);
   if (userById) {
     res.json({
       displayName: userById.displayName,
+      photoURL: userById.photoURL,
     });
   } else {
     res.status(400).json({ error: "No Response for This Request" });

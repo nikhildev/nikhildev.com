@@ -15,14 +15,16 @@ export type PostT = {
   body: String;
   author: String;
   createdAt: Date;
+  updatedAt: Date;
 };
 
 // Interface to define our Todo model on the frontend
 export type UserT = {
   _id: ObjectId;
-  google_user_id: String;
+  uid: String;
   displayName: String;
   email: String;
+  photoURL: String;
   createdAt: Date;
-  modifiedAt: Date;
+  updatedAt: Date;
 };

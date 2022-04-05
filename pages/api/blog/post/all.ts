@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { connect } from "../../../utils/mongoose/client";
-import { ResponseFuncs } from "../../../utils/types";
+import { connect } from "../../../../utils/mongoose/client";
+import { ResponseFuncs } from "../../../../utils/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   //capture request method, we type it as a key of ResponseFunc to reduce typing later
@@ -13,9 +13,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const handleCase: ResponseFuncs = {
     // RESPONSE FOR GET REQUESTS
     GET: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { User } = await connect(); // connect to database
-      res.json(await User.find());
+      const { PostModel } = await connect(); // connect to database
+      res.json(await PostModel.find());
     },
+    // RESPONSE POST REQUESTS
+    // POST: async (req: NextApiRequest, res: NextApiResponse) => {
+    //   const { Todo } = await connect(); // connect to database
+    //   res.json(await Todo.create(req.body).catch(catcher));
+    // },
   };
 
   // Check if there is a response for the particular method, if so invoke it, if not response with an error
