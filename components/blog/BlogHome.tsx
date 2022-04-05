@@ -13,12 +13,15 @@ const BlogHome = () => {
   } = useQuery("getAllPosts", getAllPosts);
 
   return (
-    <div className="flex sm:place-content-center sm:flex-col md:flex-row flex-wrap">
+    <div className="container mx-auto">
+      <h1 className="text-6xl text-white m-5">Blog</h1>
       {isLoadingPosts && <Loading text="Loading posts" />}
-      {postsData &&
-        postsData.map((post: PostT) => (
-          <PostCard key={post._id.toString()} {...post} />
-        ))}
+      <div className="grid sm:grid-cols-1 md:grid-cols-2">
+        {postsData &&
+          postsData.map((post: PostT) => (
+            <PostCard key={post._id.toString()} {...post} />
+          ))}
+      </div>
       {postsError && <div>postsError</div>}
     </div>
   );
