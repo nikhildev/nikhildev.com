@@ -1,6 +1,6 @@
 import { PostT } from "../../utils/types";
 
-const MAX_BODY_PREVIEW = 200;
+const MAX_BODY_PREVIEW = 500;
 const TRAILING_THING = "...";
 
 const PostCard = (props: PostT) => {
@@ -10,13 +10,10 @@ const PostCard = (props: PostT) => {
         TRAILING_THING
       : props.body;
   return (
-    <div className="card w-100 bg-slate-900 m-5">
+    <div className="card w-100 bg-primary text-primary-content shadow-xl m-5">
       <div className="card-body">
-        <h2 className="card-title text-green-400">{props.title}</h2>
-        <p className="text-green-200">{displayBody}</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-link">View</button>
-        </div>
+        <h2 className="card-title">{props.title}</h2>
+        <p>{displayBody}</p>
       </div>
     </div>
   );

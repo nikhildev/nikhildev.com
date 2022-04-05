@@ -14,7 +14,7 @@ const BlogHome = () => {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-6xl text-white m-5">Blog</h1>
+      <h1 className="text-6xl text-primary m-5">Blog</h1>
       {isLoadingPosts && <Loading text="Loading posts" />}
       <div className="grid sm:grid-cols-1 md:grid-cols-2">
         {postsData &&
