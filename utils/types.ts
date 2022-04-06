@@ -11,9 +11,9 @@ export interface ResponseFuncs {
 // Interface to define our Todo model on the frontend
 export type PostT = {
   _id: ObjectId;
-  title: String;
-  body: String;
-  author: String;
+  title: string;
+  body: string;
+  author: string;
   createdAt: Date;
   updatedAt: Date;
 };
@@ -21,10 +21,10 @@ export type PostT = {
 // Interface to define our Todo model on the frontend
 export type UserT = {
   _id: ObjectId;
-  uid: String;
-  displayName: String;
-  email: String;
-  photoURL: String;
+  uid: string;
+  displayName: string;
+  email: string;
+  photoURL: string;
   createdAt: Date;
   updatedAt: Date;
 };
