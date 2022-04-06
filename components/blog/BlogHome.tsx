@@ -3,7 +3,8 @@ import { PostT, UserT } from "../../utils/types";
 import Loading from "../Loading";
 import PostCard from "./PostCard";
 
-const getAllPosts = () => fetch("/api/blog/post/all").then((res) => res.json());
+const getAllPosts = () =>
+  fetch("/api/blog/post/all?preview=true").then((res) => res.json());
 
 const BlogHome = () => {
   const {

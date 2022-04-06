@@ -1,32 +1,39 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { stringToBoolean } from "../../../../utils/common/helpers";
+import { getPostBodyPreview } from "../../../../utils/common/postPreview";
 import { connect } from "../../../../utils/mongoose/client";
-import { ResponseFuncs } from "../../../../utils/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  //capture request method, we type it as a key of ResponseFunc to reduce typing later
-  const method: keyof ResponseFuncs = req.method as keyof ResponseFuncs;
+  const method = req.method;
+  const queryParams = req.query;
 
-  //function for catch errors
   const catcher = (error: Error) => res.status(400).json({ error });
 
-  // Potential Responses
-  const handleCase: ResponseFuncs = {
-    // RESPONSE FOR GET REQUESTS
-    GET: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { PostModel } = await connect(); // connect to database
-      res.json(await PostModel.find());
-    },
-    // RESPONSE POST REQUESTS
-    // POST: async (req: NextApiRequest, res: NextApiResponse) => {
-    //   const { Todo } = await connect(); // connect to database
-    //   res.json(await Todo.create(req.body).catch(catcher));
-    // },
-  };
+  switch (method) {
+    case "GET":
+      try {
+        const { PostModel } = await connect(); // connect to database
 
-  // Check if there is a response for the particular method, if so invoke it, if not response with an error
-  const response = handleCase[method];
-  if (response) response(req, res);
-  else res.status(400).json({ error: "No Response for This Request" });
+        return res.json(
+          await PostModel.find()
+            .lean()
+            .limit(Number(queryParams.limit) || 100)
+            .transform((docs) =>
+              docs.map((i) => ({
+                ...i,
+                body: stringToBoolean(queryParams.preview as string)
+                  ? getPostBodyPreview(i.body)
+                  : i.body,
+              }))
+            )
+        );
+      } catch (error) {
+        return catcher(error as Error);
+      }
+
+    default:
+      res.status(400).json({ error: "No Response for This Request" });
+  }
 };
 
 export default handler;

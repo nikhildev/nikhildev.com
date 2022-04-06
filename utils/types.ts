@@ -8,6 +8,8 @@ export interface ResponseFuncs {
   DELETE?: Function;
 }
 
+export type RequestMethods = "GET" | "POST" | "PUT" | "DELETE";
+
 // Interface to define our Todo model on the frontend
 export type PostT = {
   _id: ObjectId;

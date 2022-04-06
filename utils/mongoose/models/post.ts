@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { PostT } from "../../types";
 
 const postSchema = new mongoose.Schema(
   {
@@ -11,6 +12,6 @@ const postSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
+const Post = mongoose.models.Post || mongoose.model<PostT>("Post", postSchema);
 
 export default Post;
