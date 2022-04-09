@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
-import { PostT, UserT } from "../../utils/types";
+import { PostT } from "../../utils/types";
+import ErrorAlert from "../common/Error";
 import Loading from "../Loading";
 import PostCard from "./PostCard";
 
@@ -9,7 +10,7 @@ const getAllPosts = () =>
 const BlogHome = () => {
   const {
     isLoading: isLoadingPosts,
-    error: postsError,
+    isError,
     data: postsData,
   } = useQuery("getAllPosts", getAllPosts);
 
@@ -23,7 +24,7 @@ const BlogHome = () => {
             <PostCard key={post._id.toString()} {...post} />
           ))}
       </div>
-      {postsError && <div>postsError</div>}
+      {isError && <ErrorAlert text="Error loading posts" />}
     </div>
   );
 };
