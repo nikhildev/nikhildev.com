@@ -15,6 +15,7 @@ export type PostT = {
   _id: ObjectId;
   title: string;
   body: string;
+  slug: string;
   author: string;
   createdAt: Date;
   updatedAt: Date;

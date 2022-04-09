@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { useQuery } from "react-query";
 import { PostT } from "../../utils/types";
 import ErrorAlert from "../common/Error";
@@ -14,6 +15,10 @@ const BlogHome = () => {
     data: postsData,
   } = useQuery("getAllPosts", getAllPosts);
 
+  const handlePostView = (slug: string) => {
+    Router.push(`/post/${slug}`);
+  };
+
   return (
     <div className="container mx-auto">
       <h1 className="text-6xl text-primary m-5">Blog</h1>
@@ -21,7 +26,12 @@ const BlogHome = () => {
       <div className="grid sm:grid-cols-1 md:grid-cols-2">
         {postsData &&
           postsData.map((post: PostT) => (
-            <PostCard key={post._id.toString()} {...post} />
+            <PostCard
+              key={post._id.toString()}
+              title={post.title}
+              body={post.body}
+              slug={post.slug}
+            />
           ))}
       </div>
       {isError && <ErrorAlert text="Error loading posts" />}
