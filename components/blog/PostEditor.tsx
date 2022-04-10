@@ -29,7 +29,7 @@ const NewPostEditor = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col grow">
       <h1 className="text-3xl m-4">New post</h1>
       <div className="grid grid-cols-2 gap-4 p-4 grow">
         <div className="rounded-box flex">

@@ -6,7 +6,11 @@ const NewPostEditor = (props: Props) => {
   const onPostSumit = (text: string) => {
     console.log(text);
   };
-  return <PostEditor onSubmit={onPostSumit} />;
+  return (
+    <main className=" min-h-screen flex flex-col">
+      <PostEditor onSubmit={onPostSumit} />
+    </main>
+  );
 };
 
 export default NewPostEditor;
