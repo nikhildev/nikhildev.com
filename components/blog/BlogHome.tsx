@@ -1,5 +1,6 @@
 import Router from "next/router";
 import { useQuery } from "react-query";
+import { FIREBASE_AUTH } from "../../pages/_app";
 import { PostT } from "../../utils/types";
 import ErrorAlert from "../common/Error";
 import Loading from "../Loading";
@@ -18,6 +19,8 @@ const BlogHome = () => {
   const handlePostView = (slug: string) => {
     Router.push(`/post/${slug}`);
   };
+
+  console.log(FIREBASE_AUTH.currentUser?.uid);
 
   return (
     <div className="container mx-auto">
