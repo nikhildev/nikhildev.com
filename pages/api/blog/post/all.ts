@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { stringToBoolean } from "../../../../lib/common/helpers";
 import { getPostBodyPreview } from "../../../../lib/common/postPreview";
 import { connect } from "../../../../lib/mongoose/client";
+import { PostDocument } from "../../../../lib/mongoose/models/post";
+import { LeanDocument } from "mongoose";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method = req.method;
@@ -18,8 +20,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           await PostModel.find()
             .lean()
             .limit(Number(queryParams.limit) || 100)
-            .transform((docs) =>
-              docs.map((i) => ({
+            .transform((docs: LeanDocument<PostDocument>[]) =>
+              docs.map((i: LeanDocument<PostDocument>) => ({
                 ...i,
                 body: stringToBoolean(queryParams.preview as string)
                   ? getPostBodyPreview(i.body)

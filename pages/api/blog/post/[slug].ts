@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import errorCatcher from "../../../../lib/common/errorCatcher";
 import { connect } from "../../../../lib/mongoose/client";
+import { PostDocument } from "../../../../lib/mongoose/models/post";
+import { LeanDocument } from "mongoose";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method = req.method;
@@ -12,9 +14,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         const { PostModel } = await connect(); // connect to database
 
         return res.json(
-          await PostModel.findOne({
+          (await PostModel.findOne({
             slug,
-          }).lean()
+          }).lean()) as LeanDocument<PostDocument>
         );
       } catch (error) {
         return errorCatcher(res, error as Error);

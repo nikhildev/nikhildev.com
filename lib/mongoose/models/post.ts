@@ -23,6 +23,7 @@ export interface PostDocument extends mongoose.Document {
   updatedAt: Date;
 }
 
-const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
+const Post =
+  mongoose.models.Post || mongoose.model<PostDocument>("Post", postSchema);
 
 export default Post;
