@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import errorCatcher from "../../../../utils/common/errorCatcher";
 import { connect } from "../../../../utils/mongoose/client";
-import { PostT } from "../../../../utils/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method = req.method;

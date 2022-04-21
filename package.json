@@ -12,6 +12,7 @@
     "@sentry/nextjs": "^6.19.3",
     "daisyui": "1.25.4",
     "firebase": "^9.6.10",
+    "firebase-admin": "^10.0.2",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.8",
     "next": "^12.1.1",

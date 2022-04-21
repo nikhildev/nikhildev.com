@@ -3,7 +3,6 @@ import { PostT } from "../../types";
 
 const postSchema = new mongoose.Schema(
   {
-    _id: mongoose.Schema.Types.ObjectId,
     slug: String,
     title: String,
     body: String,
@@ -12,6 +11,6 @@ const postSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Post = mongoose.models.Post || mongoose.model<PostT>("Post", postSchema);
+const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
 
 export default Post;

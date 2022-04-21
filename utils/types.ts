@@ -21,6 +21,8 @@ export type PostT = {
   updatedAt: Date;
 };
 
+export type NewPost = Pick<PostT, "title" | "body">;
+
 // Interface to define our Todo model on the frontend
 export type UserT = {
   _id: ObjectId;
@@ -30,4 +32,12 @@ export type UserT = {
   photoURL: string;
   createdAt: Date;
   updatedAt: Date;
+  roles: string[];
 };
+
+// TODO: Convert this to a map of status code and message
+export enum HttpResponses {
+  BAD_REQUEST = "Bad Request",
+  UNAUTHORIZED = "Unauthorized",
+  INTERNAL_SERVER_ERROR = "Internal Server Error",
+}
