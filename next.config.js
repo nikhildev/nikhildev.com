@@ -4,6 +4,9 @@ const { withSentryConfig } = require("@sentry/nextjs");
 
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ["lh3.googleusercontent.com"],
+  },
 };
 
 const moduleExports = nextConfig;

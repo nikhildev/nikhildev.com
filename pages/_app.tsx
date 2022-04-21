@@ -1,36 +1,22 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import { QueryClient, QueryClientProvider } from "react-query";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
+import type { AppProps } from "next/app";
+import { useContext } from "react";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import { QueryClient, QueryClientProvider } from "react-query";
 import {
   FIREBASE_CREDENTIALS,
   FIREBASE_UI_CONFIG,
 } from "../config/firebase.config";
-import React from "react";
+import AuthProvider, { AuthContext } from "../lib/contexts/authContext";
+import "../styles/globals.css";
 
-firebase.initializeApp(FIREBASE_CREDENTIALS);
+//////////// FIREBASE AUTH ///////////////
+export const firebaseApp = firebase.initializeApp(FIREBASE_CREDENTIALS);
 
 export const FIREBASE_AUTH = firebase.auth();
 
-FIREBASE_AUTH.onAuthStateChanged(
-  async (user) => {
-    if (user) {
-      const idToken = await user.getIdToken();
-      const refreshToken = user.refreshToken;
-    }
-  },
-  (err) => {
-    console.error("Failed to reauthenticate");
-  }
-);
-
-const AuthContext = React.createContext({
-  uid: null,
-});
-
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -40,16 +26,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <nav>
-        <StyledFirebaseAuth
-          uiConfig={FIREBASE_UI_CONFIG}
-          firebaseAuth={firebase.auth()}
-        />
-      </nav>
-      <Component {...pageProps} />
-    </QueryClientProvider>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
+    </AuthProvider>
   );
 }
 
-export default MyApp;
+export default App;
