@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { FC, useContext } from "react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { FIREBASE_UI_CONFIG } from "../../config/firebase.config";
-import { AuthContext } from "../../lib/context/authContext";
-import { FIREBASE_AUTH } from "../../pages/_app";
+import { FIREBASE_UI_CONFIG } from "../config/firebase.config";
+import { AuthContext } from "../lib/context/authContext";
+import { FIREBASE_AUTH } from "../pages/_app";
 
 const Page: FC = ({ children }) => {
   const { user } = useContext(AuthContext);

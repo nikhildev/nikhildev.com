@@ -1,4 +1,4 @@
-import PostEditor from "../../../components/blog/PostEditor";
+import PostEditor from "../../../components/PostEditor";
 
 type Props = {};
 

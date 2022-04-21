@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useQuery } from "react-query";
-import RichText from "../../../components/blog/RichText";
-import ErrorAlert from "../../../components/common/Error";
+import RichText from "../../../components/RichText";
+import ErrorAlert from "../../../components/Error";
 import Loading from "../../../components/Loading";
 import { PostT } from "../../../lib/types";
 
