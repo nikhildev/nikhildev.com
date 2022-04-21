@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+main {
+  background-color: #0f182c;
+}
+
 * {
   box-sizing: border-box;
 }

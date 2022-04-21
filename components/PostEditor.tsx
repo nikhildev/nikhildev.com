@@ -1,3 +1,4 @@
+import { PostT } from "lib/types";
 import { FormEvent, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import styles from "styles/PostEditor.module.scss";
@@ -13,19 +14,30 @@ const markdownComponents = {
 };
 
 type Props = {
-  onSubmit: (postContent: string) => void;
+  post?: PostT;
+  onSubmit: (post: Pick<PostT, "title" | "body">) => void;
 };
 
 const NewPostEditor = (props: Props) => {
-  const [postContent, setPostContent] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [body, setBody] = useState<string>("");
 
   const handlePostSubmit = (e: FormEvent) => {
     e.preventDefault();
-    props.onSubmit(postContent);
+    title &&
+      body &&
+      props.onSubmit({
+        title,
+        body,
+      });
   };
 
-  const handlePostContentChange = (e: FormEvent<HTMLTextAreaElement>) => {
-    setPostContent(e.currentTarget.value);
+  const handleTitleChange = (e: FormEvent<HTMLInputElement>) => {
+    setTitle(e.currentTarget.value);
+  };
+
+  const handleBodyChange = (e: FormEvent<HTMLTextAreaElement>) => {
+    setBody(e.currentTarget.value);
   };
 
   return (
@@ -34,11 +46,12 @@ const NewPostEditor = (props: Props) => {
       <div className="grid grid-cols-2 gap-4 p-4 grow">
         <div className="rounded-box flex">
           <form onSubmit={handlePostSubmit} className="flex flex-col grow">
+            <input onChange={handleTitleChange} />
             <textarea
               name="postContent"
               id="postContent"
               className="textarea grow bg-slate-800 text-white border-none font-mono"
-              onChange={handlePostContentChange}
+              onChange={handleBodyChange}
             ></textarea>
             <button type="submit" className="btn btn-primary mt-1">
               Post
@@ -46,10 +59,7 @@ const NewPostEditor = (props: Props) => {
           </form>
         </div>
         <div className="bg-base-300 rounded-md px-6 py-4">
-          <ReactMarkdown
-            children={postContent}
-            components={markdownComponents}
-          />
+          <ReactMarkdown children={body} components={markdownComponents} />
         </div>
       </div>
     </div>

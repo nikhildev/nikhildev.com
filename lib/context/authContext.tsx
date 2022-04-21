@@ -38,6 +38,7 @@ const AuthProvider: FC = ({ children }) => {
             photoURL: user?.photoURL || "",
             uid: user.uid,
           });
+          setIdToken(idToken);
         }
       },
       (err) => {

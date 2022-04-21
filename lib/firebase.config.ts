@@ -12,11 +12,11 @@ export const FIREBASE_UI_CONFIG = {
   signInOptions: [GoogleAuthProvider.PROVIDER_ID],
   callbacks: {
     signInSuccessWithAuthResult: (userCredential: UserCredential) => {
-      if (userCredential !== null) {
-        userCredential.user?.getIdToken().then((idToken) => {
-          console.log(idToken);
-        });
-      }
+      // if (userCredential !== null) {
+      //   userCredential.user?.getIdToken().then((idToken) => {
+      //     console.log(idToken);
+      //   });
+      // }
       return false;
     },
   },

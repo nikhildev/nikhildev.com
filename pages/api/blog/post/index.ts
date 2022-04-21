@@ -3,7 +3,7 @@ import { firebaseAdmin } from "lib/firebaseAdmin";
 import errorCatcher from "lib/common/errorCatcher";
 import { connect } from "lib/mongoose/client";
 import User from "lib/mongoose/models/user";
-import { HttpResponses, NewPost, UserT } from "lib/types";
+import { HttpResponses, NewPost, RequestMethods, UserT } from "lib/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method = req.method;
@@ -13,7 +13,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   // TODO : Add common exception handling and response statuses and messages
 
   switch (method) {
-    case "POST":
+    case RequestMethods.POST:
       if (!idToken) {
         console.error("No bearer token provided");
         return res.status(401).json({ error: HttpResponses.UNAUTHORIZED });
