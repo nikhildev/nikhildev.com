@@ -1,4 +1,4 @@
-import firebase from "firebase/compat/app";
+import { GoogleAuthProvider, UserCredential } from "firebase/auth";
 
 export const FIREBASE_CREDENTIALS = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY,
@@ -9,11 +9,9 @@ export const FIREBASE_CREDENTIALS = {
 export const FIREBASE_UI_CONFIG = {
   // Popup signin flow rather than redirect flow.
   signInFlow: "popup",
-  signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
+  signInOptions: [GoogleAuthProvider.PROVIDER_ID],
   callbacks: {
-    signInSuccessWithAuthResult: (
-      userCredential: firebase.auth.UserCredential
-    ) => {
+    signInSuccessWithAuthResult: (userCredential: UserCredential) => {
       if (userCredential !== null) {
         userCredential.user?.getIdToken().then((idToken) => {
           console.log(idToken);

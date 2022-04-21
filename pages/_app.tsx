@@ -14,7 +14,6 @@ firebase.initializeApp(FIREBASE_CREDENTIALS);
 
 export const FIREBASE_AUTH = firebase.auth();
 
-// FIREBASE_AUTH.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 FIREBASE_AUTH.onAuthStateChanged(
   async (user) => {
     if (user) {
@@ -40,16 +39,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     },
   });
 
-  const handleAuthCallback = (whatever) => {
-    console.log(whatever);
-  };
   return (
     <QueryClientProvider client={queryClient}>
       <nav>
         <StyledFirebaseAuth
           uiConfig={FIREBASE_UI_CONFIG}
           firebaseAuth={firebase.auth()}
-          uiCallback={handleAuthCallback}
         />
       </nav>
       <Component {...pageProps} />
