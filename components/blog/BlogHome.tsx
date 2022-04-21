@@ -6,7 +6,7 @@ import ErrorAlert from "../common/Error";
 import Loading from "../Loading";
 import PostCard from "./PostCard";
 import { useContext } from "react";
-import { AuthContext } from "../../lib/contexts/authContext";
+import { AuthContext } from "../../lib/context/authContext";
 import Page from "../common/Page";
 
 const getAllPosts = () =>

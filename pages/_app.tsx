@@ -8,7 +8,7 @@ import {
   FIREBASE_CREDENTIALS,
   FIREBASE_UI_CONFIG,
 } from "../config/firebase.config";
-import AuthProvider, { AuthContext } from "../lib/contexts/authContext";
+import AuthProvider, { AuthContext } from "../lib/context/authContext";
 import "../styles/globals.css";
 
 //////////// FIREBASE AUTH ///////////////
