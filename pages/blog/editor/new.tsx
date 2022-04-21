@@ -29,7 +29,7 @@ const NewPostEditor = () => {
   };
 
   return (
-    <Page className=" min-h-screen flex flex-col">
+    <Page>
       {user ? (
         <PostEditor onSubmit={onPostSumit} />
       ) : (
