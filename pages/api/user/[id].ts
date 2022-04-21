@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { connect } from "../../../utils/mongoose/client";
-import { ResponseFuncs, UserT } from "../../../utils/types";
+import { connect } from "../../../lib/mongoose/client";
+import { ResponseFuncs, UserT } from "../../../lib/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   //capture request method, we type it as a key of ResponseFunc to reduce typing later

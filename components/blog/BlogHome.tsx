@@ -1,7 +1,7 @@
 import Router from "next/router";
 import { useQuery } from "react-query";
 import { FIREBASE_AUTH } from "../../pages/_app";
-import { PostT } from "../../utils/types";
+import { PostT } from "../../lib/types";
 import ErrorAlert from "../common/Error";
 import Loading from "../Loading";
 import PostCard from "./PostCard";

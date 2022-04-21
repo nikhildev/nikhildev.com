@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import slug from "mongoose-slug-generator";
+const slug = require("mongoose-slug-generator");
 
 mongoose.plugin(slug);
 
@@ -12,6 +12,16 @@ const postSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+export interface PostDocument extends mongoose.Document {
+  _id: mongoose.Schema.Types.ObjectId;
+  title: string;
+  body: string;
+  slug: string;
+  author: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
 

@@ -1,10 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import errorCatcher from "../../../../utils/common/errorCatcher";
-import { connect } from "../../../../utils/mongoose/client";
-import { HttpResponses, NewPost, UserT } from "../../../../utils/types";
-import { initializeApp } from "firebase-admin/app";
 import { firebaseAdmin } from "../../../../lib/firebaseAdmin";
-import User from "../../../../utils/mongoose/models/user";
+import errorCatcher from "../../../../lib/common/errorCatcher";
+import { connect } from "../../../../lib/mongoose/client";
+import User from "../../../../lib/mongoose/models/user";
+import { HttpResponses, NewPost, UserT } from "../../../../lib/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method = req.method;

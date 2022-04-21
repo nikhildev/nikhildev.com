@@ -8,6 +8,7 @@ import {
   FIREBASE_CREDENTIALS,
   FIREBASE_UI_CONFIG,
 } from "../config/firebase.config";
+import React from "react";
 
 firebase.initializeApp(FIREBASE_CREDENTIALS);
 
@@ -26,6 +27,10 @@ FIREBASE_AUTH.onAuthStateChanged(
   }
 );
 
+const AuthContext = React.createContext({
+  uid: null,
+});
+
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -34,12 +39,17 @@ function MyApp({ Component, pageProps }: AppProps) {
       },
     },
   });
+
+  const handleAuthCallback = (whatever) => {
+    console.log(whatever);
+  };
   return (
     <QueryClientProvider client={queryClient}>
       <nav>
         <StyledFirebaseAuth
           uiConfig={FIREBASE_UI_CONFIG}
           firebaseAuth={firebase.auth()}
+          uiCallback={handleAuthCallback}
         />
       </nav>
       <Component {...pageProps} />

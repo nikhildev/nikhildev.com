@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import RichText from "../../../components/blog/RichText";
 import ErrorAlert from "../../../components/common/Error";
 import Loading from "../../../components/Loading";
-import { PostT } from "../../../utils/types";
+import { PostT } from "../../../lib/types";
 
 const getPostBySlug = (slug: string) =>
   fetch(`/api/blog/post/${slug}`).then((res) => res.json());

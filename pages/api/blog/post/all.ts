@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { stringToBoolean } from "../../../../utils/common/helpers";
-import { getPostBodyPreview } from "../../../../utils/common/postPreview";
-import { connect } from "../../../../utils/mongoose/client";
+import { stringToBoolean } from "../../../../lib/common/helpers";
+import { getPostBodyPreview } from "../../../../lib/common/postPreview";
+import { connect } from "../../../../lib/mongoose/client";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method = req.method;

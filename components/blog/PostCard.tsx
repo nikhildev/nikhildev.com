@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PostT } from "../../utils/types";
+import { PostT } from "../../lib/types";
 import RichText from "./RichText";
 
 const MAX_BODY_PREVIEW = 500;
