@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import errorCatcher from "../../../../lib/common/errorCatcher";
-import { connect } from "../../../../lib/mongoose/client";
-import { PostDocument } from "../../../../lib/mongoose/models/post";
+import errorCatcher from "lib/common/errorCatcher";
+import { connect } from "lib/mongoose/client";
+import { PostDocument } from "lib/mongoose/models/post";
 import { LeanDocument } from "mongoose";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {

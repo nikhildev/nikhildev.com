@@ -4,6 +4,7 @@ import { getPostBodyPreview } from "../../../../lib/common/postPreview";
 import { connect } from "../../../../lib/mongoose/client";
 import { PostDocument } from "../../../../lib/mongoose/models/post";
 import { LeanDocument } from "mongoose";
+import { RequestMethods } from "lib/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method = req.method;
@@ -12,7 +13,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const catcher = (error: Error) => res.status(400).json({ error });
 
   switch (method) {
-    case "GET":
+    case RequestMethods.GET:
       try {
         const { PostModel } = await connect(); // connect to database
 

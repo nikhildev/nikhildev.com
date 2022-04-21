@@ -1,6 +1,6 @@
 import mongoose, { Model } from "mongoose";
-import PostModel from "./models/post";
-import UserModel from "./models/user";
+import PostModel from "lib/mongoose/models/post";
+import UserModel from "lib/mongoose/models/user";
 
 // CONNECTING TO MONGOOSE (Get Database Url from .env.local)
 const { DATABASE_URL } = process.env;

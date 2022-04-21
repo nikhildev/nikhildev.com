@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import styles from "../../styles/PostEditor.module.scss";
+import styles from "styles/PostEditor.module.scss";
 
 const markdownComponents = {
   h1: ({ ...props }) => <h1 className={styles.h1} {...props} />,

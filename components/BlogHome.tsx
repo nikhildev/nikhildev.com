@@ -1,13 +1,12 @@
+import { AuthContext } from "lib/context/authContext";
 import Router from "next/router";
+import { useContext } from "react";
 import { useQuery } from "react-query";
-import { FIREBASE_AUTH } from "../pages/_app";
-import { PostT } from "../lib/types";
+import { PostT } from "lib/types";
 import ErrorAlert from "./Error";
 import Loading from "./Loading";
-import PostCard from "./PostCard";
-import { useContext } from "react";
-import { AuthContext } from "../lib/context/authContext";
 import Page from "./Page";
+import PostCard from "./PostCard";
 
 const getAllPosts = () =>
   fetch("/api/blog/post/all?preview=true").then((res) => res.json());

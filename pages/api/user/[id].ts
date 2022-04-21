@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { connect } from "../../../lib/mongoose/client";
-import { UserT } from "../../../lib/types";
+import { connect } from "lib/mongoose/client";
+import { UserT } from "lib/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = req.query;

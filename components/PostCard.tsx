@@ -1,9 +1,5 @@
 import Link from "next/link";
-import { PostT } from "../lib/types";
 import RichText from "./RichText";
-
-const MAX_BODY_PREVIEW = 500;
-const TRAILING_THING = "...";
 
 type Props = {
   title: string;

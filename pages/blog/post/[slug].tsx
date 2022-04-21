@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import { useQuery } from "react-query";
-import RichText from "../../../components/RichText";
-import ErrorAlert from "../../../components/Error";
-import Loading from "../../../components/Loading";
-import { PostT } from "../../../lib/types";
+import RichText from "components/RichText";
+import ErrorAlert from "components/Error";
+import Loading from "components/Loading";
+import { PostT } from "lib/types";
 
 const getPostBySlug = (slug: string) =>
   fetch(`/api/blog/post/${slug}`).then((res) => res.json());

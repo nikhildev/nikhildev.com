@@ -1,6 +1,6 @@
 import React, { createContext, FC, useEffect, useState } from "react";
-import { FIREBASE_AUTH } from "../../pages/_app";
-import { UserT } from "../types";
+import { FIREBASE_AUTH } from "pages/_app";
+import { UserT } from "lib/types";
 
 export type AuthUser = Pick<UserT, "displayName" | "photoURL" | "uid">;
 
