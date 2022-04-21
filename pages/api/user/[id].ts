@@ -1,11 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connect } from "../../../lib/mongoose/client";
-import { ResponseFuncs, UserT } from "../../../lib/types";
+import { UserT } from "../../../lib/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  //capture request method, we type it as a key of ResponseFunc to reduce typing later
-  const method: keyof ResponseFuncs = req.method as keyof ResponseFuncs;
-
   const { id } = req.query;
 
   const { UserModel } = await connect(); // connect to database

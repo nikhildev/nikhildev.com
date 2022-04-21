@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import {
   FIREBASE_CREDENTIALS,
   FIREBASE_UI_CONFIG,
-} from "../config/firebase.config";
+} from "../lib/firebase.config";
 import AuthProvider, { AuthContext } from "../lib/context/authContext";
 import "../styles/globals.css";
 
