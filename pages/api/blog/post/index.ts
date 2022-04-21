@@ -16,6 +16,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   switch (method) {
     case "POST":
       if (!idToken) {
+        console.error("No bearer token provided");
         return res.status(401).json({ error: HttpResponses.UNAUTHORIZED });
       }
 
@@ -39,6 +40,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
               return res.json(post);
             } else {
+              console.error(
+                "User does not have editor priviges to create post"
+              );
               return res
                 .status(401)
                 .json({ error: HttpResponses.UNAUTHORIZED });
@@ -49,6 +53,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             return res.status(401).json({ error: HttpResponses.UNAUTHORIZED });
           }
         } else {
+          console.error("No title or body provided");
           throw HttpResponses.BAD_REQUEST;
         }
       } catch (error) {
