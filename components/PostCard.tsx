@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Avatar from "./Avatar";
 import RichText from "./RichText";
 
 type Props = {
@@ -18,9 +19,19 @@ const PostCard = (props: Props) => {
           </h2>
         </Link>
         <div className="card-actions justify-between">
-          <span className="text-xs my-auto text-cyan-200">
-            <i>Posted on {new Date(props.updatedAt).toLocaleDateString()}</i>
-          </span>
+          <div className="flex flex-row">
+            <Avatar
+              displayName="{props.author}"
+              src="/me_square.jpg"
+              className="my-auto"
+            />
+            <div className="flex flex-col ml-2">
+              <span className="text-whites text-sm">
+                <strong>Nikhil Dev Chunchu</strong>
+              </span>
+              <span className="text-xs text-cyan-200">{props.updatedAt}</span>
+            </div>
+          </div>
           <span className="btn btn-secondary btn-sm">
             <Link href={`/blog/post/${props.slug}`} passHref>
               View
