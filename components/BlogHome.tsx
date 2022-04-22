@@ -25,7 +25,6 @@ const BlogHome = () => {
 
   return (
     <Page>
-      <h1 className="text-6xl text-primary m-5">Blog</h1>
       {isLoadingPosts && <Loading text="Loading posts" />}
       <div className="grid sm:grid-cols-1 md:grid-cols-2">
         {postsData &&
