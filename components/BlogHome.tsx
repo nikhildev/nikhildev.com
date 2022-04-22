@@ -1,8 +1,7 @@
 import { AuthContext } from "lib/context/authContext";
-import Router from "next/router";
+import { PostT } from "lib/types";
 import { useContext } from "react";
 import { useQuery } from "react-query";
-import { PostT } from "lib/types";
 import ErrorAlert from "./Error";
 import Loading from "./Loading";
 import Page from "./Page";
@@ -19,10 +18,6 @@ const BlogHome = () => {
     data: postsData,
   } = useQuery("getAllPosts", getAllPosts);
 
-  const handlePostView = (slug: string) => {
-    Router.push(`/post/${slug}`);
-  };
-
   return (
     <Page>
       {isLoadingPosts && <Loading text="Loading posts" />}
@@ -34,6 +29,7 @@ const BlogHome = () => {
               title={post.title}
               body={post.body}
               slug={post.slug}
+              updatedAt={post.updatedAt}
             />
           ))}
       </div>
