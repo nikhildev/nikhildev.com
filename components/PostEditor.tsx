@@ -59,7 +59,7 @@ const NewPostEditor = (props: Props) => {
           </form>
         </div>
         <div className="bg-base-300 rounded-md px-6 py-4">
-          <ReactMarkdown children={body} components={markdownComponents} />
+          <ReactMarkdown components={markdownComponents}>{body}</ReactMarkdown>
         </div>
       </div>
     </div>

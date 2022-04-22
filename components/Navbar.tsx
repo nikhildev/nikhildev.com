@@ -22,8 +22,14 @@ const Navbar = (props: Props) => {
       <div className="inline-flex flex-row align-middle">
         <div className="avatar link">
           <div className="w-16 mask mask-hexagon">
-            <Link href="/">
-              <img src="/me_square.jpg" width="24" height="24" />
+            <Link href="/" passHref>
+              <Image
+                alt="Nikhil Dev Chunchu"
+                src="/me_square.jpg"
+                height={24}
+                width={24}
+                layout="responsive"
+              />
             </Link>
           </div>
         </div>
@@ -40,15 +46,21 @@ const Navbar = (props: Props) => {
                 tabIndex={0}
                 className="w-8 rounded-full ring-2 ring-green-500"
               >
-                <img src={props.user.photoURL} />
+                <Image
+                  alt={props.user.displayName}
+                  src={props.user.photoURL}
+                  height={24}
+                  width={24}
+                  layout="responsive"
+                />
               </div>
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+              className="dropdown-content menu p-2 shadow bg-secondary rounded-box w-52 text-white text-sm"
             >
               <li>
-                <Link href="/blog/editor/new">New blog post</Link>
+                <Link href="/blog/editor/new">New Post</Link>
               </li>
               <li>
                 <a onClick={handleSignOut}>Logout</a>

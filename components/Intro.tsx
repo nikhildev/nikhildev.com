@@ -9,8 +9,10 @@ const Intro = () => {
         <div>
           <h1 className="text-8xl text-primary font-bold">Hi!</h1>
           <p className="py-6 text-3xl text-green-300">
-            My name is Nikhil and I'm a 39 year old Engineering team lead
-            working in Finland.
+            My name is Nikhil.
+            <br />
+            <br />
+            I&rsquo;m a 39 year old Engineering Team Lead working in Finland.
           </p>
         </div>
       </div>

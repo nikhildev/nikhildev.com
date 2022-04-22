@@ -18,7 +18,9 @@ const markdownComponents = {
 const RichText = (props: Props) => {
   return (
     <div>
-      <ReactMarkdown children={props.text} components={markdownComponents} />
+      <ReactMarkdown components={markdownComponents}>
+        {props.text}
+      </ReactMarkdown>
     </div>
   );
 };
