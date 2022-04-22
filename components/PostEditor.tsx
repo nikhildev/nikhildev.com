@@ -1,17 +1,6 @@
 import { PostT } from "lib/types";
 import { FormEvent, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import styles from "styles/PostEditor.module.scss";
-
-const markdownComponents = {
-  h1: ({ ...props }) => <h1 className={styles.h1} {...props} />,
-  h2: ({ ...props }) => <h2 className={styles.h2} {...props} />,
-  h3: ({ ...props }) => <h3 className={styles.h3} {...props} />,
-  li: ({ ...props }) => <li className={styles.li} {...props} />,
-  p: ({ ...props }) => <p className={styles.p} {...props} />,
-  ul: ({ ...props }) => <ul className={styles.ul} {...props} />,
-  ol: ({ ...props }) => <ol className={styles.ol} {...props} />,
-};
+import RichText from "./RichText";
 
 type Props = {
   post?: PostT;
@@ -41,27 +30,32 @@ const NewPostEditor = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col grow">
-      <h1 className="text-3xl m-4">New post</h1>
-      <div className="grid grid-cols-2 gap-4 p-4 grow">
-        <div className="rounded-box flex">
-          <form onSubmit={handlePostSubmit} className="flex flex-col grow">
-            <input onChange={handleTitleChange} />
-            <textarea
-              name="postContent"
-              id="postContent"
-              className="textarea grow bg-slate-800 text-white border-none font-mono"
-              onChange={handleBodyChange}
-            ></textarea>
-            <button type="submit" className="btn btn-primary mt-1">
-              Post
-            </button>
-          </form>
+    <div className="flex flex-col grow h-100">
+      <form onSubmit={handlePostSubmit} className="flex flex-col gap-4 p-4">
+        <div className="flex">
+          <input
+            className="input grow"
+            placeholder="Post title"
+            onChange={handleTitleChange}
+          />
         </div>
-        <div className="bg-base-300 rounded-md px-6 py-4">
-          <ReactMarkdown components={markdownComponents}>{body}</ReactMarkdown>
+        <div className="flex flex-col">
+          <button type="submit" className="btn btn-primary">
+            Post
+          </button>
         </div>
-      </div>
+        <div className="grid grid-cols-2 rounded-box flex gap-2">
+          <textarea
+            name="postContent"
+            id="postContent"
+            className="textarea bg-slate-800 text-white border-none font-mono"
+            onChange={handleBodyChange}
+          ></textarea>
+          <div className="outline outline-accent outline-1 rounded-md px-6 py-4 text-white">
+            <RichText content={body} />
+          </div>
+        </div>
+      </form>
     </div>
   );
 };

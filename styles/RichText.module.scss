@@ -1,14 +1,18 @@
 .h1 {
+  @apply my-5;
   @apply text-3xl;
 }
 .h2 {
+  @apply my-3;
   @apply text-2xl;
 }
 .h3 {
+  @apply my-2;
   @apply text-xl;
 }
 
 .li {
+  @apply my-2;
   @apply ml-4;
 }
 
@@ -17,9 +21,11 @@
 }
 
 .ul {
+  @apply my-5;
   @apply list-disc;
 }
 
 .ol {
+  @apply my-5;
   @apply list-decimal;
 }

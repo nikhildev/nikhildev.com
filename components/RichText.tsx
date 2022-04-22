@@ -1,9 +1,8 @@
-import { FC } from "react";
 import ReactMarkdown from "react-markdown";
-import styles from "styles/PostEditor.module.scss";
+import styles from "styles/Richtext.module.scss";
 
 type Props = {
-  text: string;
+  content: string;
 };
 
 const markdownComponents = {
@@ -20,7 +19,7 @@ const RichText = (props: Props) => {
   return (
     <div className="text-gray-300 text-xl">
       <ReactMarkdown components={markdownComponents}>
-        {props.text}
+        {props.content}
       </ReactMarkdown>
     </div>
   );

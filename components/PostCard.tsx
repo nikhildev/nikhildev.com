@@ -1,7 +1,6 @@
 import { dateStringToReadable } from "lib/common/helpers";
 import Link from "next/link";
 import Avatar from "./Avatar";
-import RichText from "./RichText";
 
 type Props = {
   title: string;

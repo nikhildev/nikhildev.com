@@ -43,7 +43,7 @@ const BlogHome = () => {
               </span>
             </div>
           </div>
-          <RichText text={data.body} />
+          <RichText content={data.body} />
         </div>
       )}
 
