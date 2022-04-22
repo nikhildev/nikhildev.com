@@ -5,6 +5,7 @@ import ErrorAlert from "components/Error";
 import Loading from "components/Loading";
 import { PostT } from "lib/types";
 import Page from "components/Page";
+import Avatar from "components/Avatar";
 
 const getPostBySlug = (slug: string) =>
   fetch(`/api/blog/post/${slug}`).then((res) => res.json());
@@ -26,10 +27,18 @@ const BlogHome = () => {
           <h1 className="text-5xl text-yellow-500">
             <strong>{data.title}</strong>
           </h1>
-          <div className="my-6 text-cyan-400 text-sm">
-            <i>
-              Posted by {data.author} on {data.updatedAt}
-            </i>
+          <div className="my-6 text-cyan-400 text-sm inline-flex">
+            <Avatar
+              displayName={data.author}
+              src="/me_square.jpg"
+              className="my-auto"
+            />
+            <div className="flex flex-col ml-2">
+              <span>
+                <strong>Nikhil Dev Chunchu</strong>
+              </span>
+              <span className="text-xs text-cyan-600">{data.updatedAt}</span>
+            </div>
           </div>
           <RichText text={data.body} />
         </div>
