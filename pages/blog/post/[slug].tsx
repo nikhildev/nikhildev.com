@@ -6,6 +6,7 @@ import Loading from "components/Loading";
 import { PostT } from "lib/types";
 import Page from "components/Page";
 import Avatar from "components/Avatar";
+import { dateStringToReadable } from "lib/common/helpers";
 
 const getPostBySlug = (slug: string) =>
   fetch(`/api/blog/post/${slug}`).then((res) => res.json());
@@ -37,7 +38,9 @@ const BlogHome = () => {
               <span>
                 <strong>Nikhil Dev Chunchu</strong>
               </span>
-              <span className="text-xs text-cyan-600">{data.updatedAt}</span>
+              <span className="text-xs text-cyan-600">
+                {dateStringToReadable(data.updatedAt)}
+              </span>
             </div>
           </div>
           <RichText text={data.body} />

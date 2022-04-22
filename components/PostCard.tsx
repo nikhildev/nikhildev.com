@@ -1,3 +1,4 @@
+import { dateStringToReadable } from "lib/common/helpers";
 import Link from "next/link";
 import Avatar from "./Avatar";
 import RichText from "./RichText";
@@ -26,10 +27,12 @@ const PostCard = (props: Props) => {
               className="my-auto"
             />
             <div className="flex flex-col ml-2">
-              <span className="text-whites text-sm">
+              <span className="text-cyan-100 text-sm">
                 <strong>Nikhil Dev Chunchu</strong>
               </span>
-              <span className="text-xs text-cyan-200">{props.updatedAt}</span>
+              <span className="text-xs text-cyan-200">
+                {dateStringToReadable(props.updatedAt)}
+              </span>
             </div>
           </div>
           <span className="btn btn-secondary btn-sm">
