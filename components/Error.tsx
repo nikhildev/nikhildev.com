@@ -1,10 +1,14 @@
+import { HTMLAttributes } from "react";
+
 type Props = {
   text: string;
 };
 
-const ErrorAlert = (props: Props) => (
-  <div className="alert alert-error shadow-lg">
-    <div>
+const ErrorAlert = (props: Props & HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={`alert alert-error bg-red-500 text-white shadow-lg ${props.className}`}
+  >
+    <div className=" gap-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="stroke-current flex-shrink-0 h-6 w-6"
