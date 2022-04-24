@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import styles from "styles/Richtext.module.scss";
+import styles from "styles/RichText.module.scss";
 
 type Props = {
   content: string;
