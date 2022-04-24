@@ -33,6 +33,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
               const post = new PostModel({
                 title: payload.title,
                 body: payload.body,
+                author: {
+                  displayName: user.displayName,
+                  uid,
+                },
+                isPublished: payload.isPublished,
               });
 
               await post.save();

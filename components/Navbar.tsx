@@ -18,7 +18,7 @@ const Navbar = (props: Props) => {
   };
 
   return (
-    <nav className="navbar bg-slate-800">
+    <nav className="navbar bg-transparent">
       <div className="inline-flex flex-row align-middle">
         <div className="avatar link">
           <div className="w-16 mask mask-hexagon">
@@ -44,7 +44,7 @@ const Navbar = (props: Props) => {
             <div className="avatar link">
               <div
                 tabIndex={0}
-                className="w-8 rounded-full ring-2 ring-green-500"
+                className="w-8 rounded-full ring-2 ring-secondary"
               >
                 <Image
                   alt={props.user.displayName}
@@ -59,10 +59,10 @@ const Navbar = (props: Props) => {
               tabIndex={0}
               className="dropdown-content menu p-2 shadow bg-secondary rounded-box w-52 text-white text-sm"
             >
-              <li>
+              <li className="btn btn-ghost">
                 <Link href="/blog/editor/new">New Post</Link>
               </li>
-              <li>
+              <li className="btn btn-ghost">
                 <a onClick={handleSignOut}>Logout</a>
               </li>
             </ul>

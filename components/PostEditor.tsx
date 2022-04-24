@@ -1,23 +1,48 @@
 import { PostT } from "lib/types";
+import { useEffect } from "react";
 import { FormEvent, useState } from "react";
 import RichText from "./RichText";
 
 type Props = {
   post?: PostT;
-  onSubmit: (post: Pick<PostT, "title" | "body">) => void;
+  onSubmit: (post: Pick<PostT, "title" | "body" | "isPublished">) => void;
 };
 
-const NewPostEditor = (props: Props) => {
+const PostEditor = (props: Props) => {
   const [title, setTitle] = useState<string>("");
   const [body, setBody] = useState<string>("");
+  const [isPublished, setIsPublished] = useState<boolean>(false);
 
-  const handlePostSubmit = (e: FormEvent) => {
+  useEffect(() => {
+    if (props.post) {
+      setTitle(props.post?.title);
+      setBody(props.post?.body);
+      // setIsPublished(props.post.isPublished);
+    }
+  }, [props.post]);
+
+  const handlePublish = (e: FormEvent) => {
     e.preventDefault();
+    setIsPublished(true);
+    // title &&
+    //   body &&
+    //   props.onSubmit({
+    //     title,
+    //     body,
+    //     isPublished,
+    //   });
+  };
+
+  const handleSaveAsDraft = (e: FormEvent) => {
+    e.preventDefault();
+    setIsPublished(false);
+
     title &&
       body &&
       props.onSubmit({
         title,
         body,
+        isPublished,
       });
   };
 
@@ -30,28 +55,43 @@ const NewPostEditor = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col grow h-100">
-      <form onSubmit={handlePostSubmit} className="flex flex-col gap-4 p-4">
+    <div className="flex flex-col grow ">
+      <form onSubmit={handlePublish} className="flex flex-col gap-4 p-4 grow">
         <div className="flex">
           <input
-            className="input grow"
+            className="input grow text-2xl bg-transparent outline outline-0 text-yellow-500"
             placeholder="Post title"
             onChange={handleTitleChange}
+            value={title}
           />
         </div>
-        <div className="flex flex-col">
-          <button type="submit" className="btn btn-primary">
-            Post
+        <div className="flex flex-row justify-end gap-2">
+          <button
+            role="button"
+            className="btn btn-outline btn-secondary hover:btn-secondary"
+            onClick={handleSaveAsDraft}
+          >
+            Save as draft
+          </button>
+          <button
+            type="submit"
+            className="btn btn-wide btn-accent hover:bg-accent"
+          >
+            Publish
           </button>
         </div>
-        <div className="grid grid-cols-2 rounded-box flex gap-2">
+        <div className="grid grid-cols-2 rounded-box gap-4 grow">
           <textarea
             name="postContent"
             id="postContent"
             className="textarea bg-slate-800 text-white border-none font-mono"
             onChange={handleBodyChange}
+            value={body}
           ></textarea>
-          <div className="outline outline-accent outline-1 rounded-md px-6 py-4 text-white">
+          <div className="outline outline-secondary outline-1 rounded-md px-6 py-4">
+            <h1 className="text-5xl text-yellow-500">
+              <strong>{title}</strong>
+            </h1>
             <RichText content={body} />
           </div>
         </div>
@@ -60,4 +100,4 @@ const NewPostEditor = (props: Props) => {
   );
 };
 
-export default NewPostEditor;
+export default PostEditor;

@@ -8,7 +8,7 @@ const Intro = () => {
       <div className="hero-content flex-col lg:flex-row">
         <div>
           <h1 className="text-8xl text-primary font-bold">Hi!</h1>
-          <p className="py-6 text-3xl text-green-300">
+          <p className="py-6 text-3xl text-white">
             My name is Nikhil.
             <br />
             <br />

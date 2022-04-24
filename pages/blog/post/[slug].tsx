@@ -28,17 +28,17 @@ const BlogHome = () => {
           <h1 className="text-5xl text-yellow-500">
             <strong>{data.title}</strong>
           </h1>
-          <div className="my-6 text-cyan-400 text-sm inline-flex">
+          <div className="my-6 text-sm inline-flex">
             <Avatar
-              displayName={data.author}
+              displayName={data?.author.displayName}
               src="/me_square.jpg"
               className="my-auto"
             />
             <div className="flex flex-col ml-2">
-              <span>
+              <span className="text-primary-content">
                 <strong>Nikhil Dev Chunchu</strong>
               </span>
-              <span className="text-xs text-cyan-600">
+              <span className="text-xs text-secondary-content">
                 {dateStringToReadable(data.updatedAt)}
               </span>
             </div>

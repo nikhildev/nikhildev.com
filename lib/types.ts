@@ -14,12 +14,16 @@ export type PostT = {
   title: string;
   body: string;
   slug: string;
-  author: string;
+  author: {
+    displayName: string;
+    uid: string;
+  };
+  isPublished: Boolean;
   createdAt: Date;
   updatedAt: Date;
 };
 
-export type NewPost = Pick<PostT, "title" | "body">;
+export type NewPost = Pick<PostT, "title" | "body" | "isPublished">;
 
 // Interface to define our Todo model on the frontend
 export type UserT = {

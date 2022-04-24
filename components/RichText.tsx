@@ -17,7 +17,7 @@ const markdownComponents = {
 
 const RichText = (props: Props) => {
   return (
-    <div className="text-gray-300 text-xl">
+    <div className="text-white text-xl">
       <ReactMarkdown components={markdownComponents}>
         {props.content}
       </ReactMarkdown>

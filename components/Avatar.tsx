@@ -9,7 +9,7 @@ type Props = {
 
 const Avatar = (props: Props & HTMLAttributes<HTMLDivElement>) => (
   <div className={`avatar ${props.className}`}>
-    <div className="w-8 ring-1 ring-green-400 rounded-full">
+    <div className="w-8 ring-1 ring-secondary rounded-full">
       <Image
         height={24}
         width={24}
