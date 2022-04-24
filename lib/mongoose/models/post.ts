@@ -25,6 +25,7 @@ export interface PostDocument extends mongoose.Document {
     displayName: string;
     uid: string;
   };
+  isPublished: boolean;
   slug: string;
   createdAt: Date;
   updatedAt: Date;

@@ -17,7 +17,7 @@ const PostEditor = (props: Props) => {
     if (props.post) {
       setTitle(props.post?.title);
       setBody(props.post?.body);
-      // setIsPublished(props.post.isPublished);
+      setIsPublished(props.post.isPublished);
     }
   }, [props.post]);
 
@@ -55,7 +55,7 @@ const PostEditor = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col grow ">
+    <div className="flex flex-col grow">
       <form onSubmit={handlePublish} className="flex flex-col gap-4 p-4 grow">
         <div className="flex">
           <input
@@ -65,7 +65,18 @@ const PostEditor = (props: Props) => {
             value={title}
           />
         </div>
-        <div className="flex flex-row justify-end gap-2">
+        <div className="flex flex-row gap-2">
+          <div className="grow inline-flex">
+            {isPublished ? (
+              <span className="badge badge-success uppercase my-auto">
+                published
+              </span>
+            ) : (
+              <span className="badge badge-secondary uppercase my-auto">
+                draft
+              </span>
+            )}
+          </div>
           <button
             role="button"
             className="btn btn-outline btn-secondary hover:btn-secondary"

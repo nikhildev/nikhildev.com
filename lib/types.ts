@@ -18,7 +18,7 @@ export type PostT = {
     displayName: string;
     uid: string;
   };
-  isPublished: Boolean;
+  isPublished: boolean;
   createdAt: Date;
   updatedAt: Date;
 };
