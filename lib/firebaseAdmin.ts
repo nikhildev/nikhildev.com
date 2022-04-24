@@ -1,4 +1,5 @@
 import * as firebaseAdmin from "firebase-admin";
+import { DecodedIdToken } from "firebase-admin/lib/auth/token-verifier";
 
 if (!firebaseAdmin.apps.length) {
   const privateKey =
@@ -13,4 +14,11 @@ if (!firebaseAdmin.apps.length) {
   });
 }
 
-export { firebaseAdmin };
+const decodeFirebaseToken = async (
+  idToken: string
+): Promise<DecodedIdToken> => {
+  const verified = firebaseAdmin.auth().verifyIdToken(idToken);
+  return verified;
+};
+
+export { firebaseAdmin, decodeFirebaseToken as verifyFirebaseToken };

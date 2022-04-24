@@ -23,7 +23,7 @@ export type PostT = {
   updatedAt: Date;
 };
 
-export type NewPost = Pick<PostT, "title" | "body" | "isPublished">;
+export type EditablePostContent = Pick<PostT, "title" | "body" | "isPublished">;
 
 // Interface to define our Todo model on the frontend
 export type UserT = {

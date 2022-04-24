@@ -8,6 +8,8 @@ import Page from "components/Page";
 import Avatar from "components/Avatar";
 import { dateStringToReadable } from "lib/common/helpers";
 import Link from "next/link";
+import { useContext } from "react";
+import { AuthContext } from "lib/context/authContext";
 
 const getPostBySlug = (slug: string) =>
   fetch(`/api/blog/post/${slug}`).then((res) => res.json());
@@ -15,6 +17,7 @@ const getPostBySlug = (slug: string) =>
 const BlogHome = () => {
   const router = useRouter();
   const { slug } = router.query;
+  const { user } = useContext(AuthContext);
 
   const { isLoading, isError, isSuccess, data } = useQuery<PostT>(
     ["getPostBySlug", slug],
@@ -32,22 +35,24 @@ const BlogHome = () => {
           <div className="my-6 text-sm flex flex-row">
             <div className="flex flex-row grow">
               <Avatar
-                displayName={data?.author.displayName}
+                displayName={data?.author?.displayName}
                 src="/me_square.jpg"
                 className="my-auto"
               />
-              <div className="flex flex-col ml-2">
+              <div className="flex flex-col ml-2 my-auto">
                 <span className="text-primary-content">
-                  <strong>Nikhil Dev Chunchu</strong>
+                  <strong>{data?.author?.displayName || "User"}</strong>
                 </span>
                 <span className="text-xs text-secondary-content">
                   {dateStringToReadable(data.updatedAt)}
                 </span>
               </div>
             </div>
-            <span className="btn btn-outline btn-small btn-secondary w-auto">
-              <Link href={`/blog/editor/${data.slug}`}>Edit post</Link>
-            </span>
+            {data.author.uid === user?.uid && (
+              <span className="btn btn-outline btn-small btn-secondary w-auto">
+                <Link href={`/blog/editor/${data.slug}`}>Edit post</Link>
+              </span>
+            )}
           </div>
           <RichText content={data.body} />
         </div>

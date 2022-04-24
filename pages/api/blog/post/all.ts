@@ -18,7 +18,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         const { PostModel } = await connect(); // connect to database
 
         return res.json(
-          await PostModel.find()
+          await PostModel.find({ isPublished: true })
             .lean()
             .limit(Number(queryParams.limit) || 100)
             .transform((docs: LeanDocument<PostDocument>[]) =>

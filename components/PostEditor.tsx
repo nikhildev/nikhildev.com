@@ -1,11 +1,12 @@
-import { PostT } from "lib/types";
+import { EditablePostContent, PostT } from "lib/types";
 import { useEffect } from "react";
 import { FormEvent, useState } from "react";
 import RichText from "./RichText";
 
 type Props = {
+  mode: "create" | "edit";
   post?: PostT;
-  onSubmit: (post: Pick<PostT, "title" | "body" | "isPublished">) => void;
+  onSubmit: (post: EditablePostContent) => void;
 };
 
 const PostEditor = (props: Props) => {
@@ -24,26 +25,23 @@ const PostEditor = (props: Props) => {
   const handlePublish = (e: FormEvent) => {
     e.preventDefault();
     setIsPublished(true);
-    // title &&
-    //   body &&
-    //   props.onSubmit({
-    //     title,
-    //     body,
-    //     isPublished,
-    //   });
+
+    props.onSubmit({
+      title,
+      body,
+      isPublished: true,
+    });
   };
 
   const handleSaveAsDraft = (e: FormEvent) => {
     e.preventDefault();
     setIsPublished(false);
 
-    title &&
-      body &&
-      props.onSubmit({
-        title,
-        body,
-        isPublished,
-      });
+    props.onSubmit({
+      title,
+      body,
+      isPublished: false,
+    });
   };
 
   const handleTitleChange = (e: FormEvent<HTMLInputElement>) => {
@@ -56,7 +54,7 @@ const PostEditor = (props: Props) => {
 
   return (
     <div className="flex flex-col grow">
-      <form onSubmit={handlePublish} className="flex flex-col gap-4 p-4 grow">
+      <form className="flex flex-col gap-4 p-4 grow">
         <div className="flex">
           <input
             className="input grow text-2xl bg-transparent outline outline-0 text-yellow-500"
@@ -85,7 +83,8 @@ const PostEditor = (props: Props) => {
             Save as draft
           </button>
           <button
-            type="submit"
+            type="button"
+            onClick={handlePublish}
             className="btn btn-wide btn-accent hover:bg-accent"
           >
             Publish

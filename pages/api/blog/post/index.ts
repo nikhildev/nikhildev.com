@@ -1,14 +1,20 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { firebaseAdmin } from "lib/firebaseAdmin";
+import { firebaseAdmin, verifyFirebaseToken } from "lib/firebaseAdmin";
 import errorCatcher from "lib/common/errorCatcher";
 import { connect } from "lib/mongoose/client";
 import User from "lib/mongoose/models/user";
-import { HttpResponses, NewPost, RequestMethods, UserT } from "lib/types";
+import {
+  HttpResponses,
+  EditablePostContent,
+  RequestMethods,
+  UserT,
+} from "lib/types";
+import { getIdTokenFromHeaders } from "lib/common/helpers";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method = req.method;
-  const payload: NewPost = req.body;
-  const idToken = req.headers?.authorization?.split(" ")[1];
+  const payload: EditablePostContent = req.body;
+  const idToken = getIdTokenFromHeaders(req);
 
   // TODO : Add common exception handling and response statuses and messages
 
@@ -23,7 +29,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         if (payload.title && payload.body) {
           const { PostModel } = await connect(); // connect to database
           try {
-            const { uid } = await firebaseAdmin.auth().verifyIdToken(idToken);
+            const { uid } = await verifyFirebaseToken(idToken);
 
             const user: UserT | null = await User.findOne({ uid }).lean();
 
@@ -52,8 +58,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                 .json({ error: HttpResponses.UNAUTHORIZED });
             }
           } catch (error) {
-            console.log(error);
-
             return res.status(401).json({ error: HttpResponses.UNAUTHORIZED });
           }
         } else {
@@ -61,8 +65,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           throw HttpResponses.BAD_REQUEST;
         }
       } catch (error) {
-        console.log(error);
-
         return errorCatcher(res, error as Error);
       }
 
