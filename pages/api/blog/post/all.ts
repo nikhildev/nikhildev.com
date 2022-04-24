@@ -5,18 +5,18 @@ import { connect } from "../../../../lib/mongoose/client";
 import { PostDocument } from "../../../../lib/mongoose/models/post";
 import { LeanDocument } from "mongoose";
 import { RequestMethods } from "lib/types";
+import errorCatcher from "lib/common/errorCatcher";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method = req.method;
   const queryParams = req.query;
+  const { PostModel } = await connect();
 
-  const catcher = (error: Error) => res.status(400).json({ error });
+  console.log(queryParams);
 
   switch (method) {
     case RequestMethods.GET:
       try {
-        const { PostModel } = await connect(); // connect to database
-
         return res.json(
           await PostModel.find({ isPublished: true })
             .lean()
@@ -31,7 +31,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             )
         );
       } catch (error) {
-        return catcher(error as Error);
+        return errorCatcher(res, error as Error);
       }
 
     default:

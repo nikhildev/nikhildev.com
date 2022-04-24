@@ -16,8 +16,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const payload: EditablePostContent = req.body;
   const idToken = getIdTokenFromHeaders(req);
 
-  // TODO : Add common exception handling and response statuses and messages
-
   switch (method) {
     case RequestMethods.POST:
       if (!idToken) {
@@ -27,7 +25,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       try {
         if (payload.title && payload.body) {
-          const { PostModel } = await connect(); // connect to database
+          const { PostModel } = await connect();
           try {
             const { uid } = await verifyFirebaseToken(idToken);
 
