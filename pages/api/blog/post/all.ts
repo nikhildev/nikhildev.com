@@ -12,8 +12,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const queryParams = req.query;
   const { PostModel } = await connect();
 
-  console.log(queryParams);
-
   switch (method) {
     case RequestMethods.GET:
       try {
