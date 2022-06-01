@@ -11,16 +11,20 @@ import Link from "next/link";
 import { useContext } from "react";
 import { AuthContext } from "lib/context/authContext";
 
-const getPostBySlug = (slug: string) =>
-  fetch(`/api/blog/post/${slug}`).then((res) => res.json());
-
 const BlogHome = () => {
+  const { idToken } = useContext(AuthContext);
+  const getPostBySlug = (slug: string) =>
+    fetch(`/api/blog/post/${slug}`, {
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
+    }).then((res) => res.json());
   const router = useRouter();
   const { slug } = router.query;
   const { user } = useContext(AuthContext);
 
   const { isLoading, isError, isSuccess, data } = useQuery<PostT>(
-    ["getPostBySlug", slug],
+    ["getPostBySlug", slug, idToken],
     () => getPostBySlug(slug as string)
   );
 
@@ -48,7 +52,7 @@ const BlogHome = () => {
                 </span>
               </div>
             </div>
-            {data.author.uid === user?.uid && (
+            {data?.author?.uid === user?.uid && (
               <span className="btn btn-outline btn-small btn-secondary w-auto">
                 <Link href={`/blog/editor/${data.slug}`}>Edit post</Link>
               </span>
