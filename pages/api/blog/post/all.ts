@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { stringToBoolean } from "../../../../lib/common/helpers";
-import { getPostBodyPreview } from "../../../../lib/common/postPreview";
-import { connect } from "../../../../lib/mongoose/client";
-import { PostDocument } from "../../../../lib/mongoose/models/post";
+import { stringToBoolean } from "lib/common/helpers";
+import { getPostBodyPreview } from "lib/common/postPreview";
+import { connect } from "lib/mongoose/client";
+import { PostDocument } from "lib/mongoose/models/post";
 import { LeanDocument } from "mongoose";
 import { RequestMethods } from "lib/types";
 import errorCatcher from "lib/common/errorCatcher";
