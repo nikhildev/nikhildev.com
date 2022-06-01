@@ -42,4 +42,5 @@ export enum HttpResponses {
   BAD_REQUEST = "Bad Request",
   UNAUTHORIZED = "Unauthorized",
   INTERNAL_SERVER_ERROR = "Internal Server Error",
+  NOT_FOUND = "Not Found",
 }
