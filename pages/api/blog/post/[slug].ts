@@ -16,14 +16,27 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   switch (method) {
     case RequestMethods.GET:
       try {
-        return res.json(
-          (await PostModel.findOne({
-            slug,
-          }).lean()) as LeanDocument<PostDocument>
-        );
+        const post = (await PostModel.findOne({
+          slug,
+        }).lean()) as LeanDocument<PostDocument>;
+
+        if (post && !post?.isPublished) {
+          if (!idToken) {
+            console.error("No bearer token provided");
+            return res.status(401).json({ error: HttpResponses.UNAUTHORIZED });
+          }
+          const { uid } = await verifyFirebaseToken(idToken);
+
+          if (uid && uid !== post.author.uid) {
+            return res.status(404).json({ error: HttpResponses.NOT_FOUND });
+          }
+        } else {
+          return res.json(post);
+        }
       } catch (error) {
         return errorCatcher(res, error as Error);
       }
+
     case RequestMethods.PATCH:
       if (!idToken) {
         console.error("No bearer token provided");
