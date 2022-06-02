@@ -37,7 +37,13 @@ const Navbar = (props: Props) => {
           <strong>Nikhil Dev</strong>
         </span>
       </div>
-      <div className="grow"></div>
+      <div className="grow px-16 align-text-bottom">
+        <span className="m-auto ml-3 text-white text-xl">
+          <strong>
+            <Link href="/blog">BLOG</Link>
+          </strong>
+        </span>
+      </div>
       <div className="flex-none gap-2">
         {props.user ? (
           <div className="dropdown dropdown-end">
