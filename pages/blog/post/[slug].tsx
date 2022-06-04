@@ -30,7 +30,9 @@ const BlogHome = () => {
 
   return (
     <Page>
-      {isLoading && <Loading text="Loading" />}
+      <div className="text-center">
+        {isLoading && <Loading text="Loading post" showSpinner />}
+      </div>
       {isSuccess && (
         <div className="mt-10 mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-40 2xl:mx-64">
           <h1 className="text-5xl text-yellow-500">
