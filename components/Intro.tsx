@@ -12,7 +12,7 @@ const Intro = () => {
             My name is Nikhil.
             <br />
             <br />
-            I&rsquo;m a 39 year old Engineering Team Lead working in Finland.
+            I&rsquo;m a 40 year old Engineering Team Lead working in Finland.
           </p>
         </div>
       </div>
