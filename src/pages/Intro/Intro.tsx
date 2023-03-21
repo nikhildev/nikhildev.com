@@ -1,14 +1,12 @@
-import Image from "next/image";
-import React from "react";
-import Page from "./Page";
+type Props = {};
 
-const Intro = () => {
-  return (
+const IntroPage = (props: Props) => (
+  <main>
     <div className="hero mt-20">
       <div className="hero-content flex-col lg:flex-row">
         <div>
           <h1 className="text-8xl text-primary font-bold">Hi!</h1>
-          <p className="py-6 text-3xl text-white">
+          <p className="py-6 text-3xl">
             My name is Nikhil.
             <br />
             <br />
@@ -17,7 +15,7 @@ const Intro = () => {
         </div>
       </div>
     </div>
-  );
-};
+  </main>
+);
 
-export default Intro;
+export default IntroPage;

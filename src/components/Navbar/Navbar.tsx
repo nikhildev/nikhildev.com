@@ -5,7 +5,7 @@ type Props = {};
 
 const Navbar = (props: Props) => {
   return (
-    <nav className="navbar bg-transparent">
+    <nav className="navbar">
       <div className="inline-flex flex-row align-middle">
         <div className="avatar link">
           <div className="w-16 mask mask-hexagon">
@@ -20,7 +20,7 @@ const Navbar = (props: Props) => {
             </Link>
           </div>
         </div>
-        <span className="m-auto ml-3 text-green-400 text-xl">
+        <span className="m-auto ml-3 text-zinc-700 text-xl">
           <strong>Nikhil Dev</strong>
         </span>
       </div>
