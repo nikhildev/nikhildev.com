@@ -2,7 +2,7 @@
   "name": "nikhildev-next",
   "private": true,
   "engines": {
-    "node": "16.15.0"
+    "node": ">18"
   },
   "scripts": {
     "dev": "next dev",
