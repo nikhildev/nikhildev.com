@@ -1,6 +1,4 @@
-import { AuthContext } from "lib/context/authContext";
 import { PostT } from "lib/types";
-import { useContext } from "react";
 import { useQuery } from "react-query";
 import ErrorAlert from "./Error";
 import Loading from "./Loading";
@@ -11,7 +9,6 @@ const getAllPosts = () =>
   fetch("/api/blog/post/all?preview=true").then((res) => res.json());
 
 const BlogHome = () => {
-  const { user } = useContext(AuthContext);
   const {
     isLoading: isLoadingPosts,
     isError,

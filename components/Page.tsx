@@ -1,15 +1,8 @@
-import Image from "next/image";
-import { FC, useContext } from "react";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { FIREBASE_UI_CONFIG } from "lib/firebase.config";
-import { AuthContext } from "lib/context/authContext";
-import { FIREBASE_AUTH } from "pages/_app";
 import Navbar from "./Navbar";
 import { NextPage } from "next";
 import Head from "next/head";
 
 const Page: NextPage = ({ children }) => {
-  const { user } = useContext(AuthContext);
   return (
     <>
       <Head>
@@ -18,7 +11,7 @@ const Page: NextPage = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="min-h-screen flex flex-col">
-        <Navbar user={user} />
+        <Navbar />
         {children}
       </main>
     </>
