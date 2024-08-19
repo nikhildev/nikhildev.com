@@ -1,0 +1,13 @@
+name = 'N1D3C'
+license = 'MIT'
+licenselink = 'https://github.com/owner/repo/LICENSE'
+description = 'Theme description'
+
+# Taxonomy terms
+tags = ['blog', 'company']
+features = ['some', 'awesome', 'features']
+
+# If the theme has a single author
+[author]
+  name = 'Nikhil Dev Chunchu'
+  homepage = 'https://nikhildev.com'

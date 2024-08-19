@@ -1,3 +1,4 @@
 baseURL = 'https://nikhildev.com/'
 languageCode = 'en-us'
 title = 'Nikhil Dev Chunchu'
+theme = 'n1d3c'
